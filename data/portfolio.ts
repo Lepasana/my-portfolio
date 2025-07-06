@@ -53,6 +53,7 @@ export interface PortfolioData {
     subtitle: string;
     about: string;
     avatar: string;
+    resume: string;
   };
   skills: Skill[];
   projects: Project[];
@@ -78,7 +79,8 @@ export const portfolioData: PortfolioData = {
      especially in both front-end and back-end technologies. 
      My goal is to become a full stack web developer, 
     and I'm looking for opportunities where I can learn, contribute, and develop professionally.`,
-    avatar: "/avatar.jpg"
+    avatar: "/avatar.jpg",
+    resume: "/resume.pdf"
   },
   skills: [
     // Frontend
@@ -106,6 +108,7 @@ export const portfolioData: PortfolioData = {
     { name: "Video Editing", level: 80, category: "other", icon: "video" },
     { name: "Encoding", level: 80, category: "other", icon: "encoding" },
     { name: "Computer Troubleshooting", level: 85, category: "other", icon: "computer" },
+    { name: "Ubuntu Linux", level: 80, category: "other", icon: "ubuntu" },
   ],
   projects: [
     {
