@@ -1,75 +1,6 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  githubUrl: string;
-  liveUrl?: string;
-  featured: boolean;
-  category: 'web' | 'mobile' | 'fullstack' | 'other';
-}
+// TypeScript interfaces removed for JavaScript compatibility
 
-export interface Skill {
-  name: string;
-  level: number; // 1-100
-  category: 'frontend' | 'backend' | 'database' | 'devops' | 'other';
-  icon: string;
-}
-
-export interface Experience {
-  id: string;
-  company: string;
-  position: string;
-  duration: string;
-  description: string;
-  technologies: string[];
-  achievements: string[];
-}
-
-export interface Education {
-  id: string;
-  institution: string;
-  degree: string;
-  field: string;
-  duration: string;
-  description: string;
-}
-
-export interface Contact {
-  email: string;
-  phone?: string;
-  location: string;
-  linkedin: string;
-  github: string;
-  twitter?: string;
-  website?: string;
-}
-
-export interface PortfolioData {
-  personal: {
-    name: string;
-    title: string;
-    subtitle: string;
-    about: string;
-    avatar: string;
-    resume: string;
-  };
-  skills: Skill[];
-  projects: Project[];
-  experience: Experience[];
-  education: Education[];
-  contact: Contact;
-  social: {
-    github: string;
-    linkedin: string;
-    twitter?: string;
-    instagram?: string;
-    facebook: string;
-  };
-}
-
-export const portfolioData: PortfolioData = {
+export const portfolioData = {
   personal: {
     name: "Rogem James Lepasana",
     title: "Frontend Developer",
@@ -123,39 +54,52 @@ export const portfolioData: PortfolioData = {
       category: "web"
     }
   ],
-  experience: [
-    {
-      id: "1",
-      company: "Life Saver Medical Services",
-      position: "Data Encoder",
-      duration: "2025 - Present",
-      description: "Responsible for accurately inputting and maintaining medical data and patient records in the company's database system.",
-      technologies: ["MS Excel", "MS Word", "Database Management", "Data Entry"],
-      achievements: [
-        "Maintained high accuracy in data entry and record keeping",
-        "Ensured timely processing of medical records and patient information",
-        "Collaborated with medical staff to verify and update patient data"
-      ]
-    }
-  ],
-  education: [
-    {
-      id: "1",
-      institution: "Bestlink College of the Philippines",
-      degree: "Bachelor of Science",
-      field: "Information Technology (BSIT) - Network Administration",
-      duration: "2021-2025",
-      description: "Graduated as Bachelor of Science in Information Technology (BSIT) major in Network Administration."
-    },
-    {
-      id: "2",
-      institution: "Justice Cecilia Muñoz Palma Senior High School",
-      degree: "Senior High School",
-      field: "Information and Communication Technology (ICT) - Animation",
-      duration: "2019-2021",
-      description: "Graduated as Information and Communication Technology (ICT) major in Animation in my Senior Year."
-    }
-  ],
+  experience: {
+    work: [
+      {
+        id: "1",
+        position: "Data Encoder",
+        company: "Life Saver Medical Services",
+        duration: "2025 - Present",
+        description: "Responsible for accurately inputting and maintaining medical data and patient records in the company's database system.",
+        technologies: ["MS Excel", "MS Word", "Database Management", "Data Entry"],
+        achievements: [
+          "Maintained high accuracy in data entry and record keeping",
+          "Ensured timely processing of medical records and patient information",
+          "Collaborated with medical staff to verify and update patient data"
+        ]
+      }
+    ],
+    education: [
+      {
+        id: "1",
+        institution: "Bestlink College of the Philippines",
+        degree: "Bachelor of Science",
+        field: "Information Technology (BSIT) - Network Administration",
+        duration: "2021-2025",
+        description: "Graduated as Bachelor of Science in Information Technology (BSIT) major in Network Administration."
+      },
+      {
+        id: "2",
+        institution: "Justice Cecilia Muñoz Palma Senior High School",
+        degree: "Senior High School",
+        field: "Information and Communication Technology (ICT) - Animation",
+        duration: "2019-2021",
+        description: "Graduated as Information and Communication Technology (ICT) major in Animation in my Senior Year."
+      }
+    ],
+    certifications: [
+      {
+        id: "1",
+        title: "Understanding the Innovators Role in Digital Transformation",
+        organization: "Vista Venice Resort, Morong Bataan, Philippines",
+        date: "April 24-26, 2023",
+        link: "https://digitalleadership.com/",
+        linkLabel: "Digital Innovation & Leadership",
+        description: "Completed intensive training on digital transformation strategies, innovation leadership, and the role of technology in modern business development."
+      }
+    ]
+  },
   contact: {
     email: "rogemlepasana@gmail.com",
     phone: "09562444109",

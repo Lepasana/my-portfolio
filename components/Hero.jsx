@@ -3,18 +3,9 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { ArrowDown, Download, Mail, Github, Linkedin, Instagram } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { portfolioData } from '../data/portfolio';
 
-interface HeroProps {
-  data: {
-    name: string;
-    title: string;
-    subtitle: string;
-    avatar: string;
-  };
-}
-
-export default function Hero({ data }: HeroProps) {
+export default function Hero({ data }) {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -23,7 +14,7 @@ export default function Hero({ data }: HeroProps) {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-0">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
@@ -176,11 +167,11 @@ export default function Hero({ data }: HeroProps) {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center">
-                  <span className="text-8xl font-bold text-white">
-                    {data.name.charAt(0)}
-                  </span>
-                </div>
+                <img
+                  src="/profilepic2.jpg"
+                  alt="Profile picture"
+                  className="w-full h-full object-cover object-center"
+                />
               </motion.div>
 
               {/* Floating Elements */}

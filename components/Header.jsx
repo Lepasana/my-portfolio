@@ -3,13 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download } from 'lucide-react';
-import { portfolioData } from '@/data/portfolio';
+import { portfolioData } from '../data/portfolio';
 
-interface HeaderProps {
-  currentSection: string;
-}
-
-export default function Header({ currentSection }: HeaderProps) {
+export default function Header({ currentSection }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -40,7 +36,7 @@ export default function Header({ currentSection }: HeaderProps) {
     { id: 'contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -60,22 +56,8 @@ export default function Header({ currentSection }: HeaderProps) {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+            <div className="flex justify-end items-center h-16">
           {/* Logo */}
-          <motion.div
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">
-                {portfolioData.personal.name.charAt(0)}
-              </span>
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              {portfolioData.personal.name}
-            </span>
-          </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -102,15 +84,7 @@ export default function Header({ currentSection }: HeaderProps) {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button
-              onClick={() => setDarkMode((prev) => !prev)}
-              className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg transition-colors font-medium text-sm"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? '🌙 Dark' : '☀️ Light'}
-            </button>
-          </div>
+          {/* Dark mode toggle hidden as requested */}
 
           {/* Mobile Menu Button */}
           <button

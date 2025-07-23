@@ -4,24 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Github, Linkedin, Instagram, Facebook } from 'lucide-react';
 
-interface ContactProps {
-  contact: {
-    email: string;
-    phone?: string;
-    location: string;
-    linkedin: string;
-    github: string;
-    website?: string;
-  };
-  social: {
-    github: string;
-    linkedin: string;
-    instagram?: string;
-    facebook?: string;
-  };
-}
-
-export default function Contact({ contact, social }: ContactProps) {
+export default function Contact({ contact, social }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -76,7 +59,9 @@ export default function Contact({ contact, social }: ContactProps) {
               </p>
               
               <motion.a
-                href={`mailto:${contact.email}?subject=Portfolio Inquiry`}
+                href={`https://mail.google.com/mail/?view=cm&to=${contact.email}&su=Portfolio Inquiry`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

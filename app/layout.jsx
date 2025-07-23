@@ -1,12 +1,11 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Toaster } from 'react-hot-toast'
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Toaster } from 'react-hot-toast';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: '| My Portfolio |',
+export const metadata = {
+  title: '</> Rogem Lepasana ',
   description: 'Professional portfolio showcasing web development projects, skills, and experience. Specializing in React, Node.js, and modern web technologies.',
   keywords: ['web developer', 'full stack developer', 'react', 'node.js', 'typescript', 'portfolio'],
   authors: [{ name: 'Your Name' }],
@@ -47,13 +46,9 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
-}
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} antialiased`}>
@@ -77,5 +72,5 @@ export default function RootLayout({
         />
       </body>
     </html>
-  )
+  );
 } 

@@ -4,18 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { User, Code, Coffee, BookOpen } from 'lucide-react';
 
-interface AboutProps {
-  data: {
-    name: string;
-    title: string;
-    subtitle: string;
-    about: string;
-    avatar: string;
-    resume: string;
-  };
-}
-
-export default function About({ data }: AboutProps) {
+export default function About({ data }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -59,11 +48,11 @@ export default function About({ data }: AboutProps) {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-full h-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center">
-                  <span className="text-9xl font-bold text-white">
-                    {data.name.charAt(0)}
-                  </span>
-                </div>
+                <img
+                  src="/profilepic.jpg"
+                  alt="Profile picture"
+                  className="w-full h-full object-cover object-center"
+                />
               </motion.div>
 
               {/* Floating Elements */}

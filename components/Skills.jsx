@@ -1,14 +1,13 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Skill } from '@/data/portfolio';
 
-interface SkillsProps {
-  skills: Skill[];
-}
+export default function Skills({ skills }) {
+  // Filter out TypeScript skill
+  const filteredSkills = skills.filter(skill => skill.name !== 'TypeScript');
 
-export default function Skills({ skills }: SkillsProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -22,8 +21,8 @@ export default function Skills({ skills }: SkillsProps) {
     { id: 'other', name: 'Other', color: 'from-indigo-500 to-purple-500' },
   ];
 
-  const getSkillsByCategory = (category: string) => {
-    return skills.filter(skill => skill.category === category);
+  const getSkillsByCategory = (category) => {
+    return filteredSkills.filter(skill => skill.category === category);
   };
 
   return (
@@ -101,18 +100,8 @@ export default function Skills({ skills }: SkillsProps) {
                             </a>
                           )}
                         </h4>
-                        {skill.icon ? (
-                          <img
-                            src={`/icons/${skill.icon}.svg`}
-                            alt={skill.name}
-                            className="w-8 h-8 object-contain rounded-full bg-gray-100 dark:bg-slate-700 p-1"
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                          />
-                        ) : (
-                          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{skill.name}</span>
-                        )}
+                        {/* Icon removed intentionally */}
                       </div>
-                      
                       <div className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                         {skill.name === "React" && "Building interactive user interfaces with component-based architecture and state management."}
                         {skill.name === "TypeScript" && "Adding type safety and enhanced developer experience to JavaScript applications."}
@@ -153,17 +142,29 @@ export default function Skills({ skills }: SkillsProps) {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               'VS Code', 'Laragon', 'XAMPP', 'Git', 'GitHub', 'Ubuntu Linux'
-            ].map((tool, index) => (
-              <motion.span
-                key={tool}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.05 }}
-                className="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-200"
-              >
-                {tool}
-              </motion.span>
-            ))}
+            ].map((tool, index) => {
+              // Map tool names to icon filenames
+              const toolIcons = {
+                'VS Code': 'vscode',
+                'Laragon': 'laragon',
+                'XAMPP': 'xampp',
+                'Git': 'git',
+                'GitHub': 'github',
+                'Ubuntu Linux': 'ubuntu',
+              };
+              const icon = toolIcons[tool];
+              return (
+                <motion.span
+                  key={tool}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.05 }}
+                  className="px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-200"
+                >
+                  {tool}
+                </motion.span>
+              );
+            })}
           </div>
         </motion.div>
 

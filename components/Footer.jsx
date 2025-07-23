@@ -3,16 +3,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, Youtube, Heart, Facebook } from 'lucide-react';
 
-interface FooterProps {
-  social: {
-    github: string;
-    linkedin: string;
-    instagram?: string;
-    facebook?: string;
-  };
-}
-
-export default function Footer({ social }: FooterProps) {
+export default function Footer({ social }) {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -34,8 +25,8 @@ export default function Footer({ social }: FooterProps) {
             className="space-y-4"
           >
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">R</span>
+              <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200">
+                <img src="/profilepic.jpg" alt="Profile" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold">Rogem James Lepasana</span>
             </div>
